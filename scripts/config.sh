@@ -19,4 +19,4 @@ case $(uname -s) in
   ;;
 esac
 
-export TOOLCHAIN="$PLATFORM_TOOLCHAIN_DIR/$SWIFT_TAG"
+export TOOLCHAIN="$HOME/Library/Developer/Toolchains/swift-wasm-5.3.1-RELEASE.xctoolchain"

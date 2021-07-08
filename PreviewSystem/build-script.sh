@@ -36,7 +36,7 @@ echo "-------------------------------------------------------------------------"
 echo "install toolchain"
 echo "-------------------------------------------------------------------------"
 
-"$preview_dir/../scripts/install-toolchain.sh"
+# "$preview_dir/../scripts/install-toolchain.sh"
 
 echo "-------------------------------------------------------------------------"
 echo "building PreviewStub pakcage"
@@ -72,17 +72,6 @@ rm -f $(find $stub_package_build_dir/wasm32-unknown-wasi -name "*~partial.swifts
 rm -f $(find $stub_package_build_dir/wasm32-unknown-wasi -name "*.swiftdeps~")
 rm -f $(find $stub_package_build_dir/wasm32-unknown-wasi -name "*~partial.swiftdoc")
 rm -f $(find $stub_package_build_dir/wasm32-unknown-wasi -name "*.d")
-
-echo "-------------------------------------------------------------------------"
-echo "workaround: copy patched modulemap into PreviewStub package"
-echo "-------------------------------------------------------------------------"
-
-cat <<EOS > $stub_package_build_dir/checkouts/JavaScriptKit/Sources/_CJavaScriptKit/include/module.modulemap
-module _CJavaScriptKit {
-    header "_CJavaScriptKit.h"
-    export *
-}
-EOS
 
 echo "-------------------------------------------------------------------------"
 echo "linking shared object library"
